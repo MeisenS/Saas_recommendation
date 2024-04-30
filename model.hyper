@@ -1,0 +1,6 @@
+learning_rate choice [1e-3,1e-4,1e-5]
+reg_weight choice [1e-3,1e-5,1e-7]
+order_list choice [7,10,20,30]
+drop_ex choice [0.,0.1,0.2,0.3]
+drop_im choice [0.,0.1,0.2,0.3]
+apply_norm choice [True,False]

@@ -1,0 +1,222 @@
+Mon 29 Apr 2024 21:17:04 INFO  ['spotify.py']
+Mon 29 Apr 2024 21:17:04 INFO  
+General Hyper Parameters:
+gpu_id = 0
+use_gpu = True
+seed = 2020
+state = INFO
+reproducibility = True
+data_path = dataset/kgrec-music
+checkpoint_dir = saved
+show_progress = True
+save_dataset = False
+dataset_save_path = None
+save_dataloaders = False
+dataloaders_save_path = None
+log_wandb = False
+
+Training Hyper Parameters:
+epochs = 20
+train_batch_size = 2048
+learner = adam
+learning_rate = 0.01
+train_neg_sample_args = {'distribution': 'uniform', 'sample_num': 1, 'alpha': 1.0, 'dynamic': False, 'candidate_num': 0}
+eval_step = 1
+stopping_step = 10
+clip_grad_norm = None
+weight_decay = 0.0
+loss_decimal_place = 4
+
+Evaluation Hyper Parameters:
+eval_args = {'split': {'RS': [0.8, 0.1, 0.1]}, 'order': 'RO', 'group_by': 'user', 'mode': {'valid': 'full', 'test': 'full'}}
+repeatable = False
+metrics = ['Recall', 'MRR', 'NDCG', 'Hit', 'Precision']
+topk = [10]
+valid_metric = MRR@10
+valid_metric_bigger = True
+eval_batch_size = 4096
+metric_decimal_place = 4
+
+Dataset Hyper Parameters:
+field_separator = 	
+seq_separator =  
+USER_ID_FIELD = user_id
+ITEM_ID_FIELD = item_id
+RATING_FIELD = rating
+TIME_FIELD = timestamp
+seq_len = None
+LABEL_FIELD = label
+threshold = None
+NEG_PREFIX = neg_
+load_col = {'inter': ['user_id', 'item_id']}
+unload_col = None
+unused_col = None
+additional_feat_suffix = None
+rm_dup_inter = None
+val_interval = None
+filter_inter_by_user_or_item = True
+user_inter_num_interval = [0,inf)
+item_inter_num_interval = [0,inf)
+alias_of_user_id = None
+alias_of_item_id = None
+alias_of_entity_id = None
+alias_of_relation_id = None
+preload_weight = None
+normalize_field = None
+normalize_all = None
+ITEM_LIST_LENGTH_FIELD = item_length
+LIST_SUFFIX = _list
+MAX_ITEM_LIST_LENGTH = 50
+POSITION_FIELD = position_id
+HEAD_ENTITY_ID_FIELD = head_id
+TAIL_ENTITY_ID_FIELD = tail_id
+RELATION_ID_FIELD = relation_id
+ENTITY_ID_FIELD = entity_id
+benchmark_filename = None
+
+Other Hyper Parameters: 
+worker = 0
+wandb_project = recbole
+shuffle = True
+require_pow = False
+enable_amp = False
+enable_scaler = False
+transform = None
+embedding_size = 64
+numerical_features = []
+discretization = None
+kg_reverse_r = False
+entity_kg_num_interval = [0,inf)
+relation_kg_num_interval = [0,inf)
+MODEL_TYPE = ModelType.GENERAL
+drop_im = 0.2
+neg_sampling = {'uniform': 1}
+MODEL_INPUT_TYPE = InputType.PAIRWISE
+eval_type = EvaluatorType.RANKING
+single_spec = True
+local_rank = 0
+device = cpu
+valid_neg_sample_args = {'distribution': 'uniform', 'sample_num': 'none'}
+test_neg_sample_args = {'distribution': 'uniform', 'sample_num': 'none'}
+
+
+Mon 29 Apr 2024 21:17:05 INFO  kgrec-music
+The number of users: 5200
+Average actions of users: 144.55299095979996
+The number of items: 8641
+Average actions of items: 86.98275462962962
+The number of inters: 751531
+The sparsity of the dataset: 98.32744830103354%
+Remain Fields: ['user_id', 'item_id']
+Mon 29 Apr 2024 21:17:06 INFO  [Training]: train_batch_size = [2048] train_neg_sample_args: [{'distribution': 'uniform', 'sample_num': 1, 'alpha': 1.0, 'dynamic': False, 'candidate_num': 0}]
+Mon 29 Apr 2024 21:17:06 INFO  [Evaluation]: eval_batch_size = [4096] eval_args: [{'split': {'RS': [0.8, 0.1, 0.1]}, 'order': 'RO', 'group_by': 'user', 'mode': {'valid': 'full', 'test': 'full'}}]
+Mon 29 Apr 2024 21:17:06 INFO  BPR(
+  (user_embedding): Embedding(5200, 64)
+  (item_embedding): Embedding(8641, 64)
+  (loss): BPRLoss()
+)
+Trainable parameters: 885824
+Mon 29 Apr 2024 21:17:06 INFO  FLOPs: 128.0
+Mon 29 Apr 2024 21:17:07 INFO  epoch 0 training [time: 1.32s, train loss: 131.8141]
+Mon 29 Apr 2024 21:17:08 INFO  epoch 0 evaluating [time: 0.79s, valid_score: 0.169600]
+Mon 29 Apr 2024 21:17:08 INFO  valid result: 
+recall@10 : 0.0428    mrr@10 : 0.1696    ndcg@10 : 0.0653    hit@10 : 0.4347    precision@10 : 0.0606
+Mon 29 Apr 2024 21:17:08 INFO  Saving current: saved/BPR-Apr-29-2024_21-17-06.pth
+Mon 29 Apr 2024 21:17:10 INFO  epoch 1 training [time: 1.40s, train loss: 61.4092]
+Mon 29 Apr 2024 21:17:11 INFO  epoch 1 evaluating [time: 0.83s, valid_score: 0.211300]
+Mon 29 Apr 2024 21:17:11 INFO  valid result: 
+recall@10 : 0.0524    mrr@10 : 0.2113    ndcg@10 : 0.0815    hit@10 : 0.5018    precision@10 : 0.0737
+Mon 29 Apr 2024 21:17:11 INFO  Saving current: saved/BPR-Apr-29-2024_21-17-06.pth
+Mon 29 Apr 2024 21:17:12 INFO  epoch 2 training [time: 1.34s, train loss: 45.6410]
+Mon 29 Apr 2024 21:17:13 INFO  epoch 2 evaluating [time: 0.77s, valid_score: 0.222700]
+Mon 29 Apr 2024 21:17:13 INFO  valid result: 
+recall@10 : 0.0563    mrr@10 : 0.2227    ndcg@10 : 0.0871    hit@10 : 0.5241    precision@10 : 0.0788
+Mon 29 Apr 2024 21:17:13 INFO  Saving current: saved/BPR-Apr-29-2024_21-17-06.pth
+Mon 29 Apr 2024 21:17:14 INFO  epoch 3 training [time: 1.24s, train loss: 38.2993]
+Mon 29 Apr 2024 21:17:15 INFO  epoch 3 evaluating [time: 0.76s, valid_score: 0.232900]
+Mon 29 Apr 2024 21:17:15 INFO  valid result: 
+recall@10 : 0.0596    mrr@10 : 0.2329    ndcg@10 : 0.0917    hit@10 : 0.5391    precision@10 : 0.083
+Mon 29 Apr 2024 21:17:15 INFO  Saving current: saved/BPR-Apr-29-2024_21-17-06.pth
+Mon 29 Apr 2024 21:17:16 INFO  epoch 4 training [time: 1.46s, train loss: 34.1686]
+Mon 29 Apr 2024 21:17:17 INFO  epoch 4 evaluating [time: 0.82s, valid_score: 0.231600]
+Mon 29 Apr 2024 21:17:17 INFO  valid result: 
+recall@10 : 0.0589    mrr@10 : 0.2316    ndcg@10 : 0.0907    hit@10 : 0.5376    precision@10 : 0.0819
+Mon 29 Apr 2024 21:17:18 INFO  epoch 5 training [time: 1.39s, train loss: 31.7264]
+Mon 29 Apr 2024 21:17:19 INFO  epoch 5 evaluating [time: 0.88s, valid_score: 0.228900]
+Mon 29 Apr 2024 21:17:19 INFO  valid result: 
+recall@10 : 0.0603    mrr@10 : 0.2289    ndcg@10 : 0.0916    hit@10 : 0.5434    precision@10 : 0.084
+Mon 29 Apr 2024 21:17:21 INFO  epoch 6 training [time: 1.28s, train loss: 30.0801]
+Mon 29 Apr 2024 21:17:21 INFO  epoch 6 evaluating [time: 0.87s, valid_score: 0.229800]
+Mon 29 Apr 2024 21:17:21 INFO  valid result: 
+recall@10 : 0.0607    mrr@10 : 0.2298    ndcg@10 : 0.0916    hit@10 : 0.5549    precision@10 : 0.0843
+Mon 29 Apr 2024 21:17:23 INFO  epoch 7 training [time: 1.34s, train loss: 28.9274]
+Mon 29 Apr 2024 21:17:24 INFO  epoch 7 evaluating [time: 0.80s, valid_score: 0.236200]
+Mon 29 Apr 2024 21:17:24 INFO  valid result: 
+recall@10 : 0.0606    mrr@10 : 0.2362    ndcg@10 : 0.0927    hit@10 : 0.5503    precision@10 : 0.0839
+Mon 29 Apr 2024 21:17:24 INFO  Saving current: saved/BPR-Apr-29-2024_21-17-06.pth
+Mon 29 Apr 2024 21:17:25 INFO  epoch 8 training [time: 1.38s, train loss: 28.1449]
+Mon 29 Apr 2024 21:17:26 INFO  epoch 8 evaluating [time: 0.84s, valid_score: 0.235000]
+Mon 29 Apr 2024 21:17:26 INFO  valid result: 
+recall@10 : 0.0606    mrr@10 : 0.235    ndcg@10 : 0.0925    hit@10 : 0.5516    precision@10 : 0.084
+Mon 29 Apr 2024 21:17:28 INFO  epoch 9 training [time: 2.08s, train loss: 27.2920]
+Mon 29 Apr 2024 21:17:29 INFO  epoch 9 evaluating [time: 1.55s, valid_score: 0.229600]
+Mon 29 Apr 2024 21:17:29 INFO  valid result: 
+recall@10 : 0.0612    mrr@10 : 0.2296    ndcg@10 : 0.092    hit@10 : 0.552    precision@10 : 0.0846
+Mon 29 Apr 2024 21:17:31 INFO  epoch 10 training [time: 1.91s, train loss: 26.9643]
+Mon 29 Apr 2024 21:17:32 INFO  epoch 10 evaluating [time: 0.82s, valid_score: 0.233900]
+Mon 29 Apr 2024 21:17:32 INFO  valid result: 
+recall@10 : 0.0611    mrr@10 : 0.2339    ndcg@10 : 0.0922    hit@10 : 0.5563    precision@10 : 0.0842
+Mon 29 Apr 2024 21:17:34 INFO  epoch 11 training [time: 1.46s, train loss: 26.8487]
+Mon 29 Apr 2024 21:17:34 INFO  epoch 11 evaluating [time: 0.77s, valid_score: 0.232300]
+Mon 29 Apr 2024 21:17:34 INFO  valid result: 
+recall@10 : 0.0611    mrr@10 : 0.2323    ndcg@10 : 0.0924    hit@10 : 0.5609    precision@10 : 0.0846
+Mon 29 Apr 2024 21:17:36 INFO  epoch 12 training [time: 1.39s, train loss: 26.4751]
+Mon 29 Apr 2024 21:17:36 INFO  epoch 12 evaluating [time: 0.76s, valid_score: 0.237200]
+Mon 29 Apr 2024 21:17:36 INFO  valid result: 
+recall@10 : 0.0618    mrr@10 : 0.2372    ndcg@10 : 0.0941    hit@10 : 0.5582    precision@10 : 0.0854
+Mon 29 Apr 2024 21:17:36 INFO  Saving current: saved/BPR-Apr-29-2024_21-17-06.pth
+Mon 29 Apr 2024 21:17:38 INFO  epoch 13 training [time: 1.35s, train loss: 25.9712]
+Mon 29 Apr 2024 21:17:39 INFO  epoch 13 evaluating [time: 0.74s, valid_score: 0.238600]
+Mon 29 Apr 2024 21:17:39 INFO  valid result: 
+recall@10 : 0.0628    mrr@10 : 0.2386    ndcg@10 : 0.095    hit@10 : 0.5638    precision@10 : 0.0867
+Mon 29 Apr 2024 21:17:39 INFO  Saving current: saved/BPR-Apr-29-2024_21-17-06.pth
+Mon 29 Apr 2024 21:17:40 INFO  epoch 14 training [time: 1.56s, train loss: 26.0307]
+Mon 29 Apr 2024 21:17:41 INFO  epoch 14 evaluating [time: 0.81s, valid_score: 0.240000]
+Mon 29 Apr 2024 21:17:41 INFO  valid result: 
+recall@10 : 0.0624    mrr@10 : 0.24    ndcg@10 : 0.0945    hit@10 : 0.563    precision@10 : 0.0857
+Mon 29 Apr 2024 21:17:41 INFO  Saving current: saved/BPR-Apr-29-2024_21-17-06.pth
+Mon 29 Apr 2024 21:17:42 INFO  epoch 15 training [time: 1.34s, train loss: 26.0500]
+Mon 29 Apr 2024 21:17:43 INFO  epoch 15 evaluating [time: 0.78s, valid_score: 0.234100]
+Mon 29 Apr 2024 21:17:43 INFO  valid result: 
+recall@10 : 0.0629    mrr@10 : 0.2341    ndcg@10 : 0.0935    hit@10 : 0.5688    precision@10 : 0.0863
+Mon 29 Apr 2024 21:17:45 INFO  epoch 16 training [time: 1.43s, train loss: 25.7556]
+Mon 29 Apr 2024 21:17:45 INFO  epoch 16 evaluating [time: 0.75s, valid_score: 0.235500]
+Mon 29 Apr 2024 21:17:45 INFO  valid result: 
+recall@10 : 0.0636    mrr@10 : 0.2355    ndcg@10 : 0.0952    hit@10 : 0.5738    precision@10 : 0.088
+Mon 29 Apr 2024 21:17:47 INFO  epoch 17 training [time: 1.22s, train loss: 25.9461]
+Mon 29 Apr 2024 21:17:47 INFO  epoch 17 evaluating [time: 0.79s, valid_score: 0.239200]
+Mon 29 Apr 2024 21:17:47 INFO  valid result: 
+recall@10 : 0.0626    mrr@10 : 0.2392    ndcg@10 : 0.0947    hit@10 : 0.5632    precision@10 : 0.0865
+Mon 29 Apr 2024 21:17:49 INFO  epoch 18 training [time: 1.22s, train loss: 25.6006]
+Mon 29 Apr 2024 21:17:49 INFO  epoch 18 evaluating [time: 0.78s, valid_score: 0.246500]
+Mon 29 Apr 2024 21:17:49 INFO  valid result: 
+recall@10 : 0.0637    mrr@10 : 0.2465    ndcg@10 : 0.0969    hit@10 : 0.5682    precision@10 : 0.0876
+Mon 29 Apr 2024 21:17:49 INFO  Saving current: saved/BPR-Apr-29-2024_21-17-06.pth
+Mon 29 Apr 2024 21:17:51 INFO  epoch 19 training [time: 1.43s, train loss: 24.9454]
+Mon 29 Apr 2024 21:17:52 INFO  epoch 19 evaluating [time: 0.79s, valid_score: 0.247700]
+Mon 29 Apr 2024 21:17:52 INFO  valid result: 
+recall@10 : 0.0644    mrr@10 : 0.2477    ndcg@10 : 0.0973    hit@10 : 0.5811    precision@10 : 0.0882
+Mon 29 Apr 2024 21:17:52 INFO  Saving current: saved/BPR-Apr-29-2024_21-17-06.pth
+Mon 29 Apr 2024 21:17:52 INFO  Loading model structure and parameters from saved/BPR-Apr-29-2024_21-17-06.pth
+Mon 29 Apr 2024 21:17:53 INFO  The running environment of this training is as follows:
++-------------+----------------+
+| Environment |     Usage      |
++=============+================+
+| CPU         |    61.80 %     |
++-------------+----------------+
+| GPU         |   0.0 / 0.0    |
++-------------+----------------+
+| Memory      | 0.69 G/16.00 G |
++-------------+----------------+
+Mon 29 Apr 2024 21:17:53 INFO  best valid : OrderedDict([('recall@10', 0.0644), ('mrr@10', 0.2477), ('ndcg@10', 0.0973), ('hit@10', 0.5811), ('precision@10', 0.0882)])
+Mon 29 Apr 2024 21:17:53 INFO  test result: OrderedDict([('recall@10', 0.0696), ('mrr@10', 0.2705), ('ndcg@10', 0.1087), ('hit@10', 0.5968), ('precision@10', 0.0969)])
